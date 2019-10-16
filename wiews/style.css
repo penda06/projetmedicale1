@@ -1,0 +1,65 @@
+ .row1 {
+     width: 100%;
+     height: 1000px;
+     background-image: url("images/bak.jpg");
+     background-repeat: no-repeat;
+     position: relative;
+     background-attachment: fixed;
+     background-size: cover;
+ }
+ 
+ .row {
+     width: 100%;
+     height: 900px;
+     position: relative;
+     background-color: rgba(230, 242, 245, 0.678);
+ }
+ 
+ .col-lg-8 {
+     position: relative;
+     margin-left: 100px;
+ }
+ 
+ .form-inline {
+     width: 500px;
+     height: 500px;
+     margin-left: 400px;
+ }
+ 
+ .formulaire {
+     width: 100%;
+     height: 700px;
+ }
+ 
+ .container2 {
+     width: 100%;
+     height: 1000px;
+ }
+ 
+ .col-lg-6 {
+     width: 40%;
+     height: 700px;
+ }
+ 
+ .container {
+     width: 40%;
+     height: 700px;
+ }
+ 
+ .button {
+     margin-top: 60px;
+ }
+ 
+ .liste {
+     widows: 500px;
+     height: 50px;
+     color: white;
+     background-color: rgb(165, 15, 15);
+ }
+ 
+ .liste2 {
+     widows: 500px;
+     height: 50px;
+     color: white;
+     background-color: rgb(8, 8, 8);
+ }
