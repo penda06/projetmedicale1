@@ -1,8 +1,7 @@
 <?php
 
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
-require_once'/var/www/html/git_space/firstprojet/model/insmedcin.php';
-
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/insmedcin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +15,17 @@ require_once'/var/www/html/git_space/firstprojet/model/insmedcin.php';
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="gestionrv.php">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">admin</a></li>
+     
+    </ul>
+  </div>
+</nav>
 <form action="" class="formulaire" method="post">
 
   <div class="row">
@@ -23,34 +33,41 @@ require_once'/var/www/html/git_space/firstprojet/model/insmedcin.php';
 <img src="images/medecin.jpg" alt="" class="container">
     </div>
     <div class="col-lg-6">
+      <br>
+      <br>
     <fieldset>
      <div class="ajoutmedcin"> 
   <label for="medecin" class="mr-sm-2">Nom medcin</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="nom_medecin">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="nom_medecin" required="required">
   <br>
   <label for="medecin" class="mr-sm-2">Prenom:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="prenom_medecin">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="prenom_medecin"required="required">
   <br>
   <label for="medecin" class="mr-sm-2">Mail:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="mail_medecin">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="mail_medecin"required="required">
   <br>
   <label for="medecin" class="mr-sm-2">Tel:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="tel_medecin">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="tel_medecin"required="required">
   <br>
   <label for="medecin" class="mr-sm-2">User</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="user_medecin">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="user_medecin"required="required">
   <br>
   
   <label for="medecin" class="mr-sm-2">password</label>
   <input type="text" class="form-control mb-2 mr-sm-2" id="medecin" name="password_medecin">
  <br>
  <label for="specialite" class="mr-sm-2">id specialite</label>
-  <select name="selection" id="">
-    <option value="">
-  <?php
-  echo selection("id_specialite","nom_specialite","SPECIALITE");?>
-  </option>
-</select>
+ <select name="nom_specialite" id="" value="">
+<?php
+    foreach($insmed as $r){
+      ?>
+        <option><?=$r["nom_specialite"]; ?></option>
+
+      <?php
+    }
+?>
+    </select>
+
 <br>
 <input type="submit" name="envoyer" value="send">
   </fieldset>

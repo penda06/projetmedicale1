@@ -1,6 +1,6 @@
 <?php
-require_once'/var/www/html/git_space/firstprojet/model/inssecretaire.php';
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/inssecretaire.php';
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
 
 ?> 
 <!DOCTYPE html>
@@ -15,7 +15,17 @@ require_once'/var/www/html/git_space/firstprojet/corps/class.php';
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">admin</a></li>
+     
+    </ul>
+  </div>
+</nav>
 
 
 <form action="" class="formulaire" method="post">
@@ -27,31 +37,39 @@ require_once'/var/www/html/git_space/firstprojet/corps/class.php';
     <div class="col-lg-6">
 
     <fieldset>
+      <br>
+      <br>
+      <br>
      <div class="ajoutsecretaire"> 
   <label for="secretaire" class="mr-sm-2">Nom </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="nom_secretaire">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="nom_secretaire" required="required">
   <br>
   <label for="secretaire" class="mr-sm-2">Prenom </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="prenom_secretaire">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="prenom_secretaire"required="required>
   <br>
   <label for="secretaire" class="mr-sm-2">Tel:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="tel_secretaire">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="tel_secretaire"required="required>
   <br>
   <label for="secretaire" class="mr-sm-2">user:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="user_secretaire">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="user_secretaire"required="required>
   <br>
   <label for="secretaire" class="mr-sm-2">password:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="password_secretaire">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="password_secretaire"required="required>
   <label for="specialite" class="mr-sm-2">id service</label>
-  <select name="selection" id="">
-    <option value="">
-  <?php
-  echo selection("id_service","nom_service","SERVICE");?>
-  </option>
-</select>
+  <select name="nom_service" id="" value="">
+<?php
+    foreach($inssecretaire as $value){
+      ?>
+        <option><?=$value["nom_service"]; ?></option>
+
+      <?php
+    }
+?>
+    </select>
+<br>
+<br>
   <button type="submit" class="btn btn-primary mb-2" name="envoyer">Submit</button>
   </fieldset>
-
 
     </div>
   </div>

@@ -1,7 +1,8 @@
 <?php
 
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
-require_once'/var/www/html/git_space/firstprojet/model/enregistrerrv.php';
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -34,47 +35,42 @@ require_once'/var/www/html/git_space/firstprojet/model/enregistrerrv.php';
 <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
-      <th scope="col">id_patient</th>
-      <th scope="col">nom</th>
-      <th scope="col">prenom</th>
-      <th scope="col">mail</th>
-      <th scope="col">tel</th>
+      <th scope="col">id_RV</th>
+      <th scope="col">specialite</th>
+      <th scope="col">patient</th>
+      <th scope="col">medcin</th>
+      <th scope="col">secretaire</th>
+      <th scope="col">planning</th>
+      <th scope="col">date</th>
+      <th scope="col">heure</th>
+      <th scope="col">durée</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
-<?php
-require_once'/var/www/html/git_space/firstprojet/wiews/connexion.php';
+  
+  <?php
 
-$sql = "SELECT * FROM patient";
-$result = $conn->query($sql);
+foreach($listerv as $value){
 
-if ($result->num_rows > 0) {
-    
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
- ?>
-    
-  <tbody>
-    <tr>
-      <td><?php echo $row["id_patient"];?></td>
-      <td><?php echo $row["nom_patient"];?></td>
-      <td><?php echo $row["prenom_patient"];?></td>
-      <td><?php echo $row["mail_patient"];?></td>
-      <td><?php echo $row["tel_patient"];?></td>
-      <td><a href="?supp=<?php echo $row[id]?>">supprimer</a><br>
-     <a href="?edit=<?php echo $row[id]?>"> modifier</a>
-     <a href="?edit=<?php echo $row[id]?>"> valider</a></
+   ?>
+    <tr>  
+  <td><?php echo $value["id_RV"];?></td>
+   <td><?php echo$value["id_specialite"] ?></td>
+   <td><?php echo $value["id_patient"];?></td>
+   <td><?php echo $value["id_medcin"];?></td>
+  <td><?php echo $value["id_secretaire"];?></td>
+  <td><?php echo $value["id_planning"];?></td>
+  <td><?php echo $value["date_rendezvous"];?></td>
+  <td><?php echo $value["heure_rendezvous"];?></td>
+  <td><?php echo $value["duree_rendezvous"];?></td>
+  <td><td><?php echo  $value['mail']  ?></td><td><a href=" /git_space/projetmedical1/wiews/supp.php?sup=<?php echo $value['id_RV'] ; ?>">supprimer</a><br>
+    <a href="modifier.php?edit=<?php echo $key;?>">modifier</a></td><br>
     </td>
     
     <?php
-    }
-  
-} else {
-    echo "0 results";
-}
-
-$conn->close;
-?>
-    </tr>
+  }
+?> 
+</tr>
   </tbody>
 </table>
     </div>

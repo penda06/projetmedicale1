@@ -1,7 +1,7 @@
 <?php
 
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
-require_once'/var/www/html/git_space/firstprojet/model/enregistrerrv.php';
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
 
 ?>
 <!DOCTYPE html>
@@ -24,13 +24,13 @@ require_once'/var/www/html/git_space/firstprojet/model/enregistrerrv.php';
 <img src="images/medecin.jpg" alt="" class="container">
     </div>
     <div class="col-lg-6">
-<br>
 
-<h1 class='liste'>
+    <h1 class='liste'>
 <center>Listes des patients</center></h1>
 <br>
 <br>
 <br>
+
 <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
         <tr>
@@ -40,59 +40,97 @@ require_once'/var/www/html/git_space/firstprojet/model/enregistrerrv.php';
       <th scope="col">mail</th>
       <th scope="col">tel</th>
     </tr>
-  </thead>
+</thead> 
 <?php
-require_once'/var/www/html/git_space/firstprojet/wiews/connexion.php';
 
-$sql = "SELECT * FROM patient";
-$result = $conn->query($sql);
+  foreach($inssecretaire as $value){
+     ?>
+        <tr>
+      <td><?php echo $value["id_patient"];?></td>
+      <td><?php echo $value["nom_patient"];?></td>
+      <td><?php echo $value["prenom_patient"];?></td>
+      <td><?php echo $value["mail_patient"];?></td>
+    <td><?php echo $value["tel_patient"];?></td>
 
-if ($result->num_rows > 0) {
-    
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
- ?>
-    
-  <tbody>
-    <tr>
-      <td><?php echo $row["id_patient"];?></td>
-      <td><?php echo $row["nom_patient"];?></td>
-      <td><?php echo $row["prenom_patient"];?></td>
-      <td><?php echo $row["mail_patient"];?></td>
-      <td><?php echo $row["tel_patient"];?></td>
-
-    <?php
+      <?php
     }
-  
-} else {
-    echo "0 results";
-}
+?> 
 
-$conn->close;
-?>
-    </tr>
-  </tbody>
+    </tr> 
+ 
 </table>
 <br>
 <br>
 <br>
 <h1 class="liste2"><center>Donner un rendezvous</center></h1>
 <br>
+<form action="" method="post">
+<select name="nom_specialite" id=""required="required">
+<?php
+    foreach($rs1 as $r1){
+      ?>
+      <option></option>
+        <option><?=$r1["nom_specialite"]; ?></option>
 
-<form action="" method="post"></form>
-<label for=""> planning</label>
-<select name="id_planning" id="">
-<option value="">
-</option>
+      <?php
+    }
+?>
 </select>
-<label for="">date</label>
-<input type="date"name="data" placeholder="date">
-<label for=""></label>
-<input type="heure"name="heure" placeholder="heure">
-<input type="duree"name="duree" placeholder="duree">
- <input type="submit" value="enregistrer" name="envoyer"> 
+<select name="nom_patient" id=""required="required">
+<?php
+    foreach($rs2 as $r2){
+      ?>
+      <option></option>
+        <option><?=$r2["nom_patient"]; ?></option>
+
+      <?php
+    }
+?>
+</select>
+<select name="nom_medcin" id=""required="required">
+<?php
+    foreach($rs3 as $r3){
+      ?>
+      <option></option>
+        <option><?=$r3["nom_medcin"]; ?></option>
+
+      <?php
+    }
+?>
 </select>
 
+<select name="nom_secretaire" id="" required="required">
+<?php
+    foreach($rs4 as $r4){
+      ?>
+      <option></option>
+        <option><?=$r4["nom_secretaire"]; ?></option>
+
+      <?php
+    }
+?>
+</select>
+<select name="date_planning" id=""required="required">
+<?php
+    foreach($rs5 as $r5){
+      ?>
+      <option></option>
+        <option><?=$r5["date_planning"]; ?></option>
+
+      <?php
+    }
+?>
+</select>
+<input type="date"name="date_rendezvous" required="required">
+<input type="time"name="heure_rendezvous"  required="required">
+<input type="text"name="duree_rendezvous" placeholder="durrée"required="required">
+<br>
+<br>
+<input type="submit" value="enregistrer" name="envoyer">
+<br>
+<br>
+</form>
+<button class="liste3" href="listerv.php"> Liste des rendezvous</button>
 
     </div>
 

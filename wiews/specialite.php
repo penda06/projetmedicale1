@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
-require_once'/var/www/html/git_space/firstprojet/model/insspecialite.php';
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/insspecialite.php';
+?>
 
-?> 
+
   
 <html lang="en">
 <head>
@@ -16,6 +17,17 @@ require_once'/var/www/html/git_space/firstprojet/corps/class.php';
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="gestionrv.php">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">admin</a></li>
+     
+    </ul>
+  </div>
+</nav>
 <form action="" class="formulaire" method="post">
 
   <div class="row">
@@ -24,21 +36,25 @@ require_once'/var/www/html/git_space/firstprojet/corps/class.php';
     </div>
     <div class="col-lg-6">
     <fieldset>
+      <br>
+      <br>
      <div class="ajoutspecialite"> 
   <label for="specialite" class="mr-sm-2">Nom specialité</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="specialite" name="nom_specialite">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="specialite" name="nom_specialite" required="required">
   <br>
   <label for="specialite" class="mr-sm-2">id service</label>
-  <select name="" id="" value="">
-    
-  <?php
-$id="id_service";
-$nom="nom_service";
-$table="SERVICE";
-echo select($id,$nom,$table);
- 
- ?>
-</select>
+    <select name="nom_service" id="" value="">
+<?php
+    foreach($rs as $r){
+      ?>
+        <option><?=$r["nom_service"]; ?></option>
+
+      <?php
+    }
+?>
+    </select>
+
+
   <br>
 <input type="submit" name="envoyer" value="send">
   </fieldset>

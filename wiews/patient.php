@@ -1,6 +1,10 @@
+
 <?php
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
-require_once'/var/www/html/git_space/firstprojet/model/inspatient.php';
+
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/inspatient.php';
+
+
 ?>
 <!DOCTYPE html>
 
@@ -16,6 +20,17 @@ require_once'/var/www/html/git_space/firstprojet/model/inspatient.php';
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="gestionrv.php">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">admin</a></li>
+     
+    </ul>
+  </div>
+</nav>
 <form action="" class="formulaire" method="post">
 
   <div class="row">
@@ -27,25 +42,18 @@ require_once'/var/www/html/git_space/firstprojet/model/inspatient.php';
     <fieldset>
      <div class="ajoutpatient"> 
   <label for="patient" class="mr-sm-2">Nom </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="nom_patient">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="nom_patient"  name="password_medecin">
   <br>
   <label for="patient" class="mr-sm-2">Prenom </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="prenom_patient">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="prenom_patient"  name="password_medecin">
   <br>
   <label for="patient" class="mr-sm-2">Mail </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="mail_patient">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="mail_patient"  name="password_medecin">
   <br>
   <label for="patient" class="mr-sm-2">Tel:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="tel_patient">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="tel_patient"  name="password_medecin">
   <br>
   <br>
- <label for="specialite" class="mr-sm-2">admin</label>
-  <select name="selection2" id="">
-    <option value="">
-  <?php
-  echo selection("id_admin","nom_admin","admin");?>
-  </option>
-</select>
   <button type="submit" class="btn btn-primary mb-2" name="envoyer">Submit</button>
   </fieldset>
 
@@ -55,18 +63,5 @@ require_once'/var/www/html/git_space/firstprojet/model/inspatient.php';
 </div>
 
 </form>
-<?php
-
-require_once'/opt/lampp/htdocs/projetmedicale/model/inspatient.php';
-
-?>
 
 
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>  
-</body>
-</html>

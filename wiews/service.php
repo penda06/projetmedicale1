@@ -1,7 +1,8 @@
 <?php
 
-require_once'/var/www/html/git_space/firstprojet/corps/class.php';
-require_once'/var/www/html/git_space/firstprojet/model/insertion.php';
+require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
+require_once'/var/www/html/git_space/projetmedical1/model/insertion.php';
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,17 @@ require_once'/var/www/html/git_space/firstprojet/model/insertion.php';
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="gestionrv.php">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">admin</a></li>
+     
+    </ul>
+  </div>
+</nav>
   
 <form action="" class="formulaire" method="post">
 
@@ -23,10 +35,13 @@ require_once'/var/www/html/git_space/firstprojet/model/insertion.php';
 <img src="images/medecin.jpg" alt="" class="container">
     </div>
     <div class="col-lg-6"> 
+      <br>
+      <br>
+      <br>
     <fieldset>
 
   <label for="service" class="mr-sm-2">Nom service</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="service" name="nom_service">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="service" name="nom_service" required="required">
   <br>
   <button type="submit" class="btn btn-primary mb-2" name="envoyer">Submit</button>
   </fieldset> 
