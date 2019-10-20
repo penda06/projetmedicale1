@@ -74,7 +74,7 @@ public function affichenom($table_name1,$table_name2, $condition1,$condition2){
 
 }
 
-
+//DELED
       public function delete($tab1,$id1,$id2)  
             {    
                 $query = "DELETE FROM ".$tab1." WHERE ".$id1."=".$id2."";
@@ -89,7 +89,36 @@ public function affichenom($table_name1,$table_name2, $condition1,$condition2){
                           
               
    }  
+    //ADDITION TABLE
+
+ 
+    public function add($tab1,$tab2,$tab3,$tab4,$tab5,$tab6)  
+            {    
+     $array = array();  
+     $query = "SELECT *FROM ".$tab1.",".$tab2." ,".$tab3.",".$tab4.",".$tab5.",".$tab6." ";
+     
+     
+     $result = mysqli_query($this->con, $query);
+    
+     while($row = mysqli_fetch_assoc($result))  
+     {  
+          $array[] = $row;  
+     }  
+     
+      return $array;
                   
+                     
+              
+   }  
+//function selection dans la base  verification
+public function verif($tablev1,$conditionv1,$conditionv2){
+$array = array();  
+$query = "SELECT * FROM ".$tablev1." WHERE ".$conditionv1." = ".$conditionv2."";
+$result = mysqli_query($this->con, $query);
+
+
+
+ }
  }
 
 

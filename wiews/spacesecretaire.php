@@ -18,7 +18,17 @@ require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="gestionrv.php">deconnexion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="admin.php">secretaire</a></li>
+     
+    </ul>
+  </div>
+</nav>
   <div class="row">
     <div class="col-lg-6" >
 <img src="images/medecin.jpg" alt="" class="container">
@@ -130,7 +140,7 @@ require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
 <br>
 <br>
 </form>
-<button class="liste3" href="listerv.php"> Liste des rendezvous</button>
+<button class="liste3" href="rvsecretaire.php"> Liste des rendezvous</button>
 
     </div>
 

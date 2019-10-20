@@ -95,80 +95,87 @@ if(!$con)
      echo 'Database Connection Error ' . mysqli_connect_error($con);  
 }  
 $query = "SELECT * FROM secretaire";  
-$result = mysqli_query($con ,$query );  
+$result = mysqli_query($con ,$query ); 
+$utilisateurs=array();
 while($row = mysqli_fetch_assoc($result))  
 {  
-     $user= $row['user_secretaire'];
-     $pass= $row['password_secretaire'];
+    $utilisateurs=$row; 
+    // var_dump($utilisateurs);
+    $user= $utilisateurs['user_secretaire'];
+    $pass=$utilisateurs['password_secretaire'];
+    $utilisateurs=array(
+     array($user,$user,$pass),
+        
+    );
 
+    if (isset($_POST['envoyer'])) {
+        $username=htmlspecialchars($_POST['username']);
+        $pass=$_POST['password'];
+        $pageredirection="spacesecretaire.php";
+        for($i=0;$i<count($utilisateurs);$i++){
+          if($utilisateurs[$i][0]==$username){
+              for($j=1;$j<count($utilisateurs[$i]);$j++){
+                  if($utilisateurs[$i][$j]==$pass){
+                      header("location:".$pageredirection."");
+                  }
+                  
+              }
+          }
+        }
+        
+        
+        }
 }  
 
- $utilisateurs = array(  array($user,$user,$pass)
+  
 
- );
-if (isset($_POST['envoyer'])) {
-$username=htmlspecialchars($_POST['username']);
-$pass=$_POST['password'];
-$pageredirection="spacesecretaire.php";
-for($i=0;$i<count($utilisateurs);$i++){
-  if($utilisateurs[$i][0]==$username){
-      for($j=1;$j<count($utilisateurs[$i]);$j++){
-          if($utilisateurs[$i][$j]==$pass){
-              header("location:".$pageredirection."");
-          }
-          
-      }
-  }
-
-  else{
-    
-}
-}
-
-
-
-}
 
 
 
 // CONNEXION medcin
 
+$con = mysqli_connect("localhost", "root", "wade", "rendezvous_medicale");  
+if(!$con)  
+{  
+     echo 'Database Connection Error ' . mysqli_connect_error($con);  
+}  
 $query = "SELECT * FROM medcin";  
-$result = mysqli_query($con ,$query );  
+$result = mysqli_query($con ,$query ); 
+$utilisateurs=array();
 while($row = mysqli_fetch_assoc($result))  
 {  
-     $user= $row['user_medcin'];
-     $pass= $row['password_medcin'];
-    
+    $utilisateurs=$row; 
+    // var_dump($utilisateurs);
+    $user= $utilisateurs['user_medcin'];
+    $pass=$utilisateurs['password_medcin'];
+    $utilisateurs=array(
+     array($user,$user,$pass),
+        
+    );
 
+    if (isset($_POST['envoyer'])) {
+        $username=htmlspecialchars($_POST['username']);
+        $pass=$_POST['password'];
+        $pageredirection="spacemedcin.php";
+        for($i=0;$i<count($utilisateurs);$i++){
+          if($utilisateurs[$i][0]==$username){
+              for($j=1;$j<count($utilisateurs[$i]);$j++){
+                  if($utilisateurs[$i][$j]==$pass){
+                      header("location:".$pageredirection."");
+                  }
+                  
+              }
+          }
+        }
+        
+        
+        }
 }  
 
-
- $utilisateurs = array(  array($user,$user,$pass)
-
- );
-if (isset($_POST['envoyer'])) {
-$username=htmlspecialchars($_POST['username']);
-$pass=$_POST['password'];
-$pageredirection="spacemedcin.php";
-for($i=0;$i<count($utilisateurs);$i++){
-  if($utilisateurs[$i][0]==$username){
-      for($j=1;$j<count($utilisateurs[$i]);$j++){
-          if($utilisateurs[$i][$j]==$pass){
-              header("location:".$pageredirection."");
-          }
-          
-      }
-  }
-
-  else{
-    
-}
-}
+  
 
 
 
-}
 
 
 

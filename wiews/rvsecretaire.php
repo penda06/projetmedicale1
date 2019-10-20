@@ -66,9 +66,9 @@ foreach($listerv as $value){
   <td><?php echo $value["date_rendezvous"];?></td>
   <td><?php echo $value["heure_rendezvous"];?></td>
   <td><?php echo $value["duree_rendezvous"];?></td>
-  <td><td><?php echo  $value['mail']  ?></td><td><a href=" /git_space/projetmedical1/wiews/supp.php?sup=<?php echo $value['id_RV'] ; ?>">supprimer</a><br>
+  <td><td><?php echo  $value['mail']  ?></td>
+  <td>
     <a href="modifier.php?edit=<?php echo $key;?>">modifier</a>
-    <button onclick="changerCouleur('valider', '#00FF00');"href="modifier.php?edit=<?php echo $key;?>"><span id="valider">valider</span></button>
   </td><br>
  </td>
  </tr>      
