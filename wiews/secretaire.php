@@ -45,16 +45,16 @@ require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
   <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="nom_secretaire" required="required">
   <br>
   <label for="secretaire" class="mr-sm-2">Prenom </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="prenom_secretaire"required="required>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="prenom_secretaire"required="required">
   <br>
   <label for="secretaire" class="mr-sm-2">Tel:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="tel_secretaire"required="required>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="tel_secretaire"required="required">
   <br>
   <label for="secretaire" class="mr-sm-2">user:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="user_secretaire"required="required>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="user_secretaire"required="required">
   <br>
   <label for="secretaire" class="mr-sm-2">password:</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="password_secretaire"required="required>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="secretaire" name="password_secretaire"required="required">
   <label for="specialite" class="mr-sm-2">id service</label>
   <select name="nom_service" id="" value="">
 <?php

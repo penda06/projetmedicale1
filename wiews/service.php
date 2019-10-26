@@ -41,7 +41,7 @@ require_once'/var/www/html/git_space/projetmedical1/model/insertion.php';
     <fieldset>
 
   <label for="service" class="mr-sm-2">Nom service</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="service" name="nom" required="required">
+  <input type="text" class="form-control mb-2 mr-sm-2" id="service" name="nom_service" required="required">
   <br>
   <button type="submit" class="btn btn-primary mb-2" name="envoyer">Submit</button>
   </fieldset> 

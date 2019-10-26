@@ -48,7 +48,7 @@ require_once'/var/www/html/git_space/projetmedical1/model/inspatient.php';
   <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="prenom_patient"  name="password_medecin">
   <br>
   <label for="patient" class="mr-sm-2">Mail </label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="mail_patient"  name="password_medecin">
+  <input type="mail" class="form-control mb-2 mr-sm-2" id="patient" name="mail_patient"  name="password_medecin">
   <br>
   <label for="patient" class="mr-sm-2">Tel:</label>
   <input type="text" class="form-control mb-2 mr-sm-2" id="patient" name="tel_patient"  name="password_medecin">

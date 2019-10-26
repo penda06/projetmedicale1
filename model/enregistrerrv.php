@@ -1,7 +1,7 @@
 <?php
 
  require_once'/var/www/html/git_space/projetmedical1/corps/class.php'; 
- $data = new Databases; 
+$data = new Databases; 
 $rs1=$data->select('specialite');
 $rs2=$data->select('patient');
 $rs3=$data->select('medcin');
@@ -10,7 +10,12 @@ $rs5=$data->select('planning');
 
 $success_message = '';  
  if(isset($_POST["envoyer"]))  
+
  {  
+     $date_planning=$_POST['date_planning'];
+     $nom_specialite=$_POST['nom_specialite'];
+     $heure_rendezvous=$_POST['heure_rendezvous'];
+
      $sv1 = $data->find('specialite','nom_specialite',$_POST['nom_specialite']);
      $sv2 = $data->find('patient','nom_patient',$_POST['nom_patient']);
      $sv3 = $data->find('medcin','nom_medcin',$_POST['nom_medcin']);
@@ -23,7 +28,7 @@ $success_message = '';
      }
      // //patient
      foreach($sv2 as $s2){
-          $value2 = $s2["id_patient"];$value["id_RV"]
+          $value2 = $s2["id_patient"];$value["id_RV"];
      }
      // //medecin
      foreach($sv3 as $s3){
@@ -37,6 +42,7 @@ $success_message = '';
      foreach($sv5 as $s5){
           $value5 = $s5["id_planning"];
      }
+
 
       $insert_data = array(  
            'id_specialite'     =>     mysqli_real_escape_string($data->con, $value1) ,
@@ -53,6 +59,7 @@ $success_message = '';
       if($data->insert('rendezvous', $insert_data))  
       {  
            $success_message = 'Post Inserted';  
+           header("location:rendezvous.php");
       }       
  }  
  

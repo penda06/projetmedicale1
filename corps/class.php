@@ -92,10 +92,13 @@ public function affichenom($table_name1,$table_name2, $condition1,$condition2){
     //ADDITION TABLE
 
  
-    public function add($tab1,$tab2,$tab3,$tab4,$tab5,$tab6)  
+    public function ListeRV()  
             {    
      $array = array();  
-     $query = "SELECT *FROM ".$tab1.",".$tab2." ,".$tab3.",".$tab4.",".$tab5.",".$tab6." ";
+     $query = "SELECT id_RV,nom_patient,nom_medcin,nom_specialite,date_planning,heure_rendezvous,date_rendezvous,duree_rendezvous
+     FROM rendezvous,patient,medcin,specialite,planning
+     WHERE rendezvous.id_patient = patient.id_patient AND rendezvous.id_planning =planning.id_planning
+     AND  rendezvous.id_medcin = medcin.id_medcin AND rendezvous.id_specialite = specialite.id_specialite";
      
      
      $result = mysqli_query($this->con, $query);
@@ -110,25 +113,52 @@ public function affichenom($table_name1,$table_name2, $condition1,$condition2){
                      
               
    }  
+
+   //SELECT PLUS ID
+   public function SelectId($id)  
+            {    
+     $array = array();  
+     $query = "SELECT id_RV,nom_patient,nom_medcin,nom_specialite,date_planning,heure_rendezvous,date_rendezvous,duree_rendezvous,nom_secretaire
+     FROM rendezvous,patient,medcin,specialite,planning,secretaire
+     WHERE rendezvous.id_patient = patient.id_patient AND rendezvous.id_planning =planning.id_planning
+     AND  rendezvous.id_medcin = medcin.id_medcin AND rendezvous.id_specialite = specialite.id_specialite
+     AND rendezvous.id_secretaire = secretaire.id_secretaire
+     AND id_RV=".$id."";
+    
+     
+     $result = mysqli_query($this->con, $query);
+    
+     while($row = mysqli_fetch_assoc($result))  
+     {  
+          $array[] = $row;  
+     }  
+     
+      return $array;
+                  
+                     
+              
+   }  
+
+
+    
 //function selection dans la base  verification
-public function verif($tablev1,$conditionv1,$conditionv2){
-$array = array();  
-$query = "SELECT * FROM ".$tablev1." WHERE ".$conditionv1." = ".$conditionv2."";
-$result = mysqli_query($this->con, $query);
-
-
-
+public function verif($tablev1,$conditionv1,$nom)
+{ 
+    
+     $query = "SELECT * FROM ".$tablev1." WHERE ".$conditionv1."=".$nom."";
+     $result =$result = mysqli_query( $this->con, $query);  
+     
+      return $result;
+     $this->con->close();
+     
  }
- }
-
-
  
 
  //CLASS CONNEXION
+}
  
- 
- ?>  -->
-<!--  
+ ?> 
+  
 //       public function select_where($table_name, $where_condition)  
 //       {  
 //            $condition = '';  

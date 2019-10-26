@@ -1,7 +1,8 @@
 <?php
-
 require_once'/var/www/html/git_space/projetmedical1/corps/class.php';
-require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
+require_once'/var/www/html/git_space/projetmedical1/model/inspatient.php';
+
+
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +54,7 @@ require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
 </thead> 
 <?php
 
-  foreach($inssecretaire as $value){
+  foreach($patient as $value){
      ?>
         <tr>
       <td><?php echo $value["id_patient"];?></td>
@@ -72,81 +73,14 @@ require_once'/var/www/html/git_space/projetmedical1/model/enregistrerrv.php';
 <br>
 <br>
 <br>
-<h1 class="liste2"><center>Donner un rendezvous</center></h1>
 <br>
-<form action="" method="post">
-<select name="nom_specialite" id=""required="required">
-<?php
-    foreach($rs1 as $r1){
-      ?>
-      <option></option>
-        <option><?=$r1["nom_specialite"]; ?></option>
-
-      <?php
-    }
-?>
-</select>
-<select name="nom_patient" id=""required="required">
-<?php
-    foreach($rs2 as $r2){
-      ?>
-      <option></option>
-        <option><?=$r2["nom_patient"]; ?></option>
-
-      <?php
-    }
-?>
-</select>
-<select name="nom_medcin" id=""required="required">
-<?php
-    foreach($rs3 as $r3){
-      ?>
-      <option></option>
-        <option><?=$r3["nom_medcin"]; ?></option>
-
-      <?php
-    }
-?>
-</select>
-
-<select name="nom_secretaire" id="" required="required">
-<?php
-    foreach($rs4 as $r4){
-      ?>
-      <option></option>
-        <option><?=$r4["nom_secretaire"]; ?></option>
-
-      <?php
-    }
-?>
-</select>
-<select name="date_planning" id=""required="required">
-<?php
-    foreach($rs5 as $r5){
-      ?>
-      <option></option>
-        <option><?=$r5["date_planning"]; ?></option>
-
-      <?php
-    }
-?>
-</select>
-<input type="date"name="date_rendezvous" required="required">
-<input type="time"name="heure_rendezvous"  required="required">
-<input type="text"name="duree_rendezvous" placeholder="durrée"required="required">
+<a href="rendezvous.php"><button type="button" class="btn btn-primary">Ajouter un rendez-vous</button></a>
 <br>
 <br>
-<input type="submit" value="enregistrer" name="envoyer">
-<br>
-<br>
-</form>
-<button class="liste3" href="rvsecretaire.php"> Liste des rendezvous</button>
-
-    </div>
+<a href="rvsecretaire.php"><button type="button" class="btn btn-secondary">liste rendezvous</button></a>
 
 
-
-
+   </div>
   </div>
 
 
